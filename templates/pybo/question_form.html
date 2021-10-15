@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
-<!-- base.html과 연결(상속, 확장) -->
+<!--base.html과 연결(상속, 확장)-->
 {% block content %}
 <div class="container my-3">
     <h5 class="my-3 border-bottom pb-2">질문 등록</h5>
     <form method="post" class="post-form my-3">
         {% csrf_token %}
-        <!-- 오류 표시 start -->
+        <!-- 오류 표시 Start -->
         {% if form.errors %}
             <div class="alert alert-danger" role="alert">
-                {% for field in form %}
-                    {% if field.errors %}
-                        {{ field.label }}
-                        {{ field.errors }}
-                    {% endif %}
-                {% endfor %}
+            {% for field in form %}
+                {% if field.errors %}
+                <strong>{{ field.label }}</strong>
+                    {{ field.errors }}
+                {% endif %}
+            {% endfor %}
             </div>
         {% endif %}
-        <!-- 오류 표시 end -->
+        <!-- 오류 표시 End -->
         <div class="form-group">
             <label for="subject">제목</label>
             <input type="text" class="form-control" name="subject" id="subject"
@@ -28,18 +28,7 @@
                 {{ form.content.value|default_if_none:'' }}
             </textarea>
         </div>
-        <button type="submit">저장하기</button>
+        <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 </div>
-
-
-
-    <!-- <h2>질문 등록</h2>
-    <form action="#" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        제목 : <input type='test'>
-         내용 : <textarea>질문내용</textarea>
-        <button type="submit">저장하기</button>
-    </form> -->
 {% endblock %}

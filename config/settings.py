@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6yqary-ivy#-jz0h+oql6%97126oqy+1$do_8m8ldg_p90@4pf'
+SECRET_KEY = 'django-insecure-z_t5mwtg4scys9vmg21(v#i@2=1$bpo=@e17igh^#rjar24z+!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'common.apps.CommonConfig',
     'pybo.apps.PyboConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,9 +120,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'static']
+STATICFILES_DIRS = [ BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 로그인 성공시 이동할 페이지
+LOGIN_REDIRECT_URL = '/'
+# 로그아웃 성공시 이동할 페이지
+LOGOUT_REDIRECT_URL = '/'
+
