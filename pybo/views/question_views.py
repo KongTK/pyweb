@@ -27,7 +27,7 @@ def question_create(request):
 #질문 수정
 @login_required(login_url='common:login')
 def question_modify(request, question_id):
-    # question = Question.objects.get(id=question_id)
+    #question = Question.objects.get(id=question_id)
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":
         form = QuestionForm(request.POST, instance=question)
@@ -42,8 +42,8 @@ def question_modify(request, question_id):
     context = {'form': form}
     return render(request, 'pybo/question_form.html', context)
 
-# 질문 삭제
-@login_required(login_url='common;login')
+#질문 삭제
+@login_required(login_url='common:login')
 def question_delete(request, question_id):
     question = Question.objects.get(id=question_id)
     question.delete()

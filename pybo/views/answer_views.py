@@ -11,7 +11,7 @@ from pybo.forms import QuestionForm, AnswerForm
 # 답변 등록
 @login_required(login_url='common:login')
 def answer_create(request, question_id):
-    # question = Question.objects.get(id=question_id)  #질문 1개 가져오기
+    #question = Question.objects.get(id=question_id)  #질문 1개 가져오기
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":
         form = AnswerForm(request.POST)

@@ -8,20 +8,21 @@
         {% if question_list %}
             {% for question in question_list %}
             <div class="col-4 my-3">
-                <div class="card" style="height:12rem">
+                <div class="card" style="height: 12rem">
                     <div class="card-body">
-                        <div class="card-text my-2" style="line-height:2rem">
+                        <div class="card-text my-2" style="line-height: 2rem">
                             {{ question.question_text }}
                         </div>
                         <a href="{% url 'poll:poll_detail' question.id %}"
-                            class="btn btn-primary my-4">투표하기</a>
+                           class="btn btn-primary my-4">투표하기 &raquo;</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         {% else %}
-            <p>설문이 없습니다</p>
+            <p>설문이 없습니다.</p>
         {% endif %}
     </div>
 </div>
 {% endblock %}
+
